@@ -11,7 +11,7 @@ const ChallengeList = () => {
     const fetchChallenges = async () => {
       try {
         console.log('Fetching challenges from /api/challenges...');
-        const response = await fetch('/api/challenges');
+        const response = await fetch(`${process.env.REACT_APP_API_URL || ''}/api/challenges`);
         console.log('Response status:', response.status);
         
         if (!response.ok) {

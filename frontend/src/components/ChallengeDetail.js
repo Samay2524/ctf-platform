@@ -43,7 +43,7 @@ function ChallengeDetail() {
 
   const fetchChallenge = async () => {
     try {
-      const response = await fetch(`/api/challenges/${id}`);
+      const response = await fetch(`${process.env.REACT_APP_API_URL || ''}/api/challenges/${id}`);
       const data = await response.json();
       if (data.success) {
         setChallenge(data.challenge);
@@ -68,7 +68,7 @@ function ChallengeDetail() {
     setMessage('');
 
     try {
-      const response = await fetch(`/api/challenges/${id}/submit`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL || ''}/api/challenges/${id}/submit`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -134,7 +134,7 @@ function ChallengeDetail() {
     setCookieFlag('');
     setCookieFlagError('');
     try {
-      const response = await fetch('/api/challenges/6/flag', { credentials: 'include' });
+      const response = await fetch(`${process.env.REACT_APP_API_URL || ''}/api/challenges/6/flag`, { credentials: 'include' });
       const data = await response.json();
       if (data.success) {
         setCookieFlag(data.flag);
