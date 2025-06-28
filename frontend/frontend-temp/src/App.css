@@ -1,0 +1,12 @@
+/* Minimal App.css for CTF React App */
+body {
+  font-family: 'Inter', 'sans-serif';
+  background-color: #111827;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  min-height: 100vh;
+} 
