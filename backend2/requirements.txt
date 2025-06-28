@@ -4,4 +4,5 @@ flask-bcrypt
 flask-cors
 sqlalchemy
 flask-sqlalchemy
-Flask-Migrate 
+Flask-Migrate
+gunicorn 
