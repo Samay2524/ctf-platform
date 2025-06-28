@@ -25,7 +25,7 @@ def seed_challenges():
             'description': 'Find the hidden message in this image. Look carefully at the pixels and colors.',
             'difficulty': 'Easy',
             'flag': 'flag{gH29XtL8s}',
-            'content': 'Here is an image: <img src="/static/rubiks.jpg" alt="hidden" />'
+            'content': 'Here is an image: <img src="https://samctf.onrender.com/static/rubiks.jpg" alt="hidden" />'
         },
         {
             'id': 3,
@@ -54,10 +54,10 @@ def seed_challenges():
         {
             'id': 6,
             'title': 'Cookie Monster',
-            'description': 'The admin cookie is stored in the browser. Can you forge it to gain admin access?',
+            'description': 'Can you forge it to gain admin access?',
             'difficulty': 'Medium',
             'flag': 'flag{vJ75PaRm9}',
-            'content': 'Cookie: user=guest; admin=false'
+            'content': ''
         },
         {
             'id': 7,
@@ -81,7 +81,7 @@ def seed_challenges():
             'description': 'Download the memory dump and find the flag hidden inside. Use tools like strings or a hex editor.',
             'difficulty': 'Medium',
             'flag': 'flag{T9xQw7Lm2Z}',
-            'content': 'Download the file: <a href="http://localhost:5050/static/mem.dmp" download>mem.dmp</a>'
+            'content': 'Download the file: <a href="https://samctf.onrender.com/static/mem.dmp" download>mem.dmp</a>'
         },
         {
             'id': 10,

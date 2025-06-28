@@ -139,7 +139,7 @@ function ChallengeDetail() {
       if (data.success) {
         setCookieFlag(data.flag);
       } else {
-        setCookieFlagError(data.message);
+        setCookieFlagError('You are not admin');
       }
     } catch (err) {
       setCookieFlagError('Error contacting backend.');
@@ -272,7 +272,6 @@ function ChallengeDetail() {
               </div>
             ) : challenge.id === 6 ? (
               <div>
-                <div className="mb-4 text-gray-300">Cookie: user=guest; admin=false</div>
                 <button
                   onClick={handleRevealCookieFlag}
                   className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors mb-3"
@@ -283,10 +282,10 @@ function ChallengeDetail() {
                   <div className="mt-3 text-green-400 font-mono">Flag: {cookieFlag}</div>
                 )}
                 {cookieFlagError && (
-                  <div className="mt-3 text-red-400">{cookieFlagError}</div>
+                  <div className="mt-3 text-red-400">You are not admin</div>
                 )}
               </div>
-            ) : parseInt(challenge.id) === 3 ? (
+            ) : parseInt(challenge.id) === 4 ? (
               <div>
                 <form onSubmit={e => { e.preventDefault(); setXssInput(xssTempInput); }} className="mb-4">
                   <label className="block text-gray-300 mb-1">Try to inject:</label>
@@ -300,10 +299,10 @@ function ChallengeDetail() {
                   <button type="submit" className="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors">Submit</button>
                 </form>
                 <div className="mt-4 p-3 bg-black rounded-lg border border-gray-700">
-                  <iframe
-                    title="xss-demo"
-                    style={{ width: '100%', height: 100, background: 'white', border: '1px solid #444' }}
-                    srcDoc={(xssInput || '').replace(/alert/gi, 'void')}
+                  <div className="mb-2 text-gray-300">Output:</div>
+                  <div
+                    className="bg-white text-black p-2 rounded"
+                    dangerouslySetInnerHTML={{ __html: xssInput || '' }}
                   />
                   {xssInput && /<script/i.test(xssInput) && (
                     <div className="mt-4 p-2 bg-green-900 text-green-300 rounded-lg text-center">
@@ -342,6 +341,10 @@ function ChallengeDetail() {
                     <span className="text-gray-400">Output will appear here...</span>
                   )}
                 </div>
+              </div>
+            ) : parseInt(challenge.id) === 2 ? (
+              <div className="flex justify-center">
+                <img src="https://samctf.onrender.com/static/rubiks.jpg" alt="hidden" />
               </div>
             ) : (
               challenge.content && (
